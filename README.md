@@ -1,36 +1,113 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Feature Prioritization Engine
 
-## Getting Started
+## Context
 
-First, run the development server:
+Modern product teams operate in high-uncertainty environments — especially when building AI-driven systems.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+In such contexts:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+* Inputs are noisy
+* Confidence levels vary
+* Effort estimates are volatile
+* Stakeholders over-prioritize perceived impact
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Without structured evaluation, roadmap decisions become reactive and politically influenced.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Problem
 
-## Learn More
+Product teams lack a transparent and adaptable framework to evaluate feature trade-offs in environments where:
 
-To learn more about Next.js, take a look at the following resources:
+* Impact is probabilistic
+* Effort is uncertain
+* Confidence varies across initiatives
+* Stakeholder pressure distorts prioritization
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+As AI systems become more integrated into products, ambiguity increases — making structured decision frameworks even more critical.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Hypothesis
 
-## Deploy on Vercel
+If prioritization inputs are:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* Quantified
+* Explicitly weighted
+* Validated
+* Transparently calculated
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Then roadmap decisions become more rational, explainable, and defensible.
+
+## Solution
+
+This tool implements an explainable RICE-based prioritization engine with:
+
+* Adjustable factor weights
+* Transparent score calculation
+* Validation guardrails
+* Dynamic ranking
+* Formula visibility for every feature
+* Structured input model (TypeScript enforced)
+
+The objective is not automation — but decision support.
+
+## RICE Framework
+
+Score = (Reach × Impact × Confidence) ÷ Effort
+
+Each factor represents:
+
+* Reach → Number of users impacted
+* Impact → Degree of improvement
+* Confidence → Reliability of estimates
+* Effort → Engineering cost
+
+The system allows weight adjustments (0.5–3 range) to simulate strategic emphasis shifts.
+
+## Key Product Decisions
+
+* Adjustable Weights
+  Enables scenario-based prioritization depending on company stage or strategic focus.
+
+* Confidence as a First-Class Variable
+  AI-heavy initiatives often carry uncertainty. Explicitly modeling confidence prevents blind optimism.
+
+* Formula Transparency
+  Stakeholder trust increases when scoring logic is visible.
+
+* No Persistence Layer
+  Intentionally scoped as an internal evaluation tool MVP.
+
+* Validation Guardrails
+  Prevents incomplete or structurally invalid input.
+
+## Trade-offs
+
+* No multi-user collaboration
+* No historical prioritization tracking
+* No side-by-side framework comparison (ICE / WSJF)
+* Input quality directly impacts output accuracy
+
+The tool supports structured thinking — not final authority.
+
+## What I Would Build Next
+
+* Sensitivity analysis visualization
+* Scenario comparison mode
+* AI feature risk modeling overlay
+* Historical decision tracking
+* Multi-framework comparison engine
+* Stakeholder weighting simulation
+
+## Architecture
+
+* Next.js (App Router)
+* TypeScript-first design
+* Modular scoring engine
+* Client-side state management
+* Clear separation between model, validation, and UI
+
+## Product Thinking Reflection
+
+As AI products introduce higher ambiguity, PMs must move from intuition-driven prioritization to structured decision systems.
+
+Frameworks do not remove uncertainty — they make it explicit.
+
+Tools like this reduce bias, increase transparency, and elevate roadmap discussions from opinion to reasoning.
