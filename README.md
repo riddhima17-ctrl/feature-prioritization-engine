@@ -1,113 +1,59 @@
-# Feature Prioritization Engine
 
-## Context
+# RICE Feature Prioritization Engine
 
-Modern product teams operate in high-uncertainty environments — especially when building AI-driven systems.
+## Overview
 
-In such contexts:
+This project simulates how a Product Manager evaluates and prioritizes roadmap initiatives using the RICE framework (Reach, Impact, Confidence, Effort).
 
-* Inputs are noisy
-* Confidence levels vary
-* Effort estimates are volatile
-* Stakeholders over-prioritize perceived impact
+It demonstrates structured decision-making, tradeoff evaluation, and strategic weighting in a SaaS analytics product context.
 
-Without structured evaluation, roadmap decisions become reactive and politically influenced.
+The application is deployed and interactive.
 
-## Problem
+## Live Demo
 
-Product teams lack a transparent and adaptable framework to evaluate feature trade-offs in environments where:
+https://feature-prioritization-engine.vercel.app
 
-* Impact is probabilistic
-* Effort is uncertain
-* Confidence varies across initiatives
-* Stakeholder pressure distorts prioritization
+## Problem Context
 
-As AI systems become more integrated into products, ambiguity increases — making structured decision frameworks even more critical.
+Early-stage product teams often struggle with:
 
-## Hypothesis
+- Subjective prioritization
+- Bias toward loud stakeholders
+- Ignoring engineering effort
+- Overvaluing high-visibility features
 
-If prioritization inputs are:
+This tool provides a transparent scoring mechanism to support structured roadmap decisions.
 
-* Quantified
-* Explicitly weighted
-* Validated
-* Transparently calculated
+## Framework Used
 
-Then roadmap decisions become more rational, explainable, and defensible.
-
-## Solution
-
-This tool implements an explainable RICE-based prioritization engine with:
-
-* Adjustable factor weights
-* Transparent score calculation
-* Validation guardrails
-* Dynamic ranking
-* Formula visibility for every feature
-* Structured input model (TypeScript enforced)
-
-The objective is not automation — but decision support.
-
-## RICE Framework
+RICE Formula:
 
 Score = (Reach × Impact × Confidence) ÷ Effort
 
-Each factor represents:
+Weights can be adjusted to simulate different strategic priorities.
 
-* Reach → Number of users impacted
-* Impact → Degree of improvement
-* Confidence → Reliability of estimates
-* Effort → Engineering cost
+Example:
+- Increasing Impact weight favors bold product bets.
+- Increasing Effort weight favors cost-sensitive execution.
 
-The system allows weight adjustments (0.5–3 range) to simulate strategic emphasis shifts.
+## Strategic Intent
 
-## Key Product Decisions
+This project is designed as a PM case study to demonstrate:
 
-* Adjustable Weights
-  Enables scenario-based prioritization depending on company stage or strategic focus.
+- Structured prioritization thinking
+- Tradeoff awareness
+- AI/SaaS roadmap simulation
+- Decision transparency
 
-* Confidence as a First-Class Variable
-  AI-heavy initiatives often carry uncertainty. Explicitly modeling confidence prevents blind optimism.
+## Tech Stack
 
-* Formula Transparency
-  Stakeholder trust increases when scoring logic is visible.
+- TypeScript
+- React (Next.js)
+- Deployed on Vercel
 
-* No Persistence Layer
-  Intentionally scoped as an internal evaluation tool MVP.
+## Future Evolution
 
-* Validation Guardrails
-  Prevents incomplete or structurally invalid input.
-
-## Trade-offs
-
-* No multi-user collaboration
-* No historical prioritization tracking
-* No side-by-side framework comparison (ICE / WSJF)
-* Input quality directly impacts output accuracy
-
-The tool supports structured thinking — not final authority.
-
-## What I Would Build Next
-
-* Sensitivity analysis visualization
-* Scenario comparison mode
-* AI feature risk modeling overlay
-* Historical decision tracking
-* Multi-framework comparison engine
-* Stakeholder weighting simulation
-
-## Architecture
-
-* Next.js (App Router)
-* TypeScript-first design
-* Modular scoring engine
-* Client-side state management
-* Clear separation between model, validation, and UI
-
-## Product Thinking Reflection
-
-As AI products introduce higher ambiguity, PMs must move from intuition-driven prioritization to structured decision systems.
-
-Frameworks do not remove uncertainty — they make it explicit.
-
-Tools like this reduce bias, increase transparency, and elevate roadmap discussions from opinion to reasoning.
+- Persistent storage (localStorage / DB)
+- Scenario presets (Growth Mode vs Cost Mode)
+- Exportable prioritization report
+- AI-assisted scoring recommendations
