@@ -13,6 +13,8 @@ The application is deployed and interactive.
 
 https://feature-prioritization-engine.vercel.app
 
+📄 Case Study: [View Product Management Write-Up](https://continuous-bubbler-aca.notion.site/Feature-Prioritization-Engine-313801d78a9380ce9b30c9ff57fd97c2?source=copy_link)
+
 ## Problem Context
 
 Early-stage product teams often struggle with:
