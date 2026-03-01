@@ -82,7 +82,7 @@ export default function FeatureForm({ onAddFeature }: Props) {
     padding: "8px 12px",
     borderRadius: "8px",
     border: "1px solid #cbd5e1",
-    marginBottom: "10px",
+    marginBottom: "20px",
     width: "100%"
   }}
 />
@@ -97,76 +97,96 @@ export default function FeatureForm({ onAddFeature }: Props) {
     padding: "8px 12px",
     borderRadius: "8px",
     border: "1px solid #cbd5e1",
-    marginBottom: "10px",
+    marginBottom: "20px",
     width: "100%"
   }}
 />
       <br />
-
-      <input
-        name="reach"
-        type="number"
-        placeholder="Reach"
-        value={formData.reach}
-  onChange={handleChange}
-  style={{
-    padding: "8px 12px",
-    borderRadius: "8px",
-    border: "1px solid #cbd5e1",
-    marginBottom: "10px",
-    width: "100%"
-  }}
-/>
+        <div style={{ marginBottom: "10px" }}>
+  <label style={{ fontSize: "14px", fontWeight: 500 }}>
+    Reach (Number of users affected)
+  </label>
+  <input
+    name="reach"
+    type="number"
+    value={formData.reach}
+    onChange={handleChange}
+    style={{
+      padding: "8px 12px",
+      borderRadius: "8px",
+      border: "1px solid #cbd5e1",
+      marginTop: "2px",
+      width: "100%"
+    }}
+  />
+</div>
       <br />
 
-      <input
-        name="impact"
-        type="number"
-        step="0.1"
-        placeholder="Impact"
-        value={formData.impact}
-  onChange={handleChange}
-  style={{
-    padding: "8px 12px",
-    borderRadius: "8px",
-    border: "1px solid #cbd5e1",
-    marginBottom: "10px",
-    width: "100%"
-  }}
-/>
+      <div style={{ marginBottom: "10px" }}>
+  <label style={{ fontSize: "14px", fontWeight: 500 }}>
+    Impact (1–3 scale)
+  </label>
+  <input
+    name="impact"
+    type="number"
+    step="0.1"
+    min="1"
+    max="3"
+    value={formData.impact}
+    onChange={handleChange}
+    style={{
+      padding: "8px 12px",
+      borderRadius: "8px",
+      border: "1px solid #cbd5e1",
+      marginTop: "2px",
+      width: "100%"
+    }}
+  />
+</div>
       <br />
 
-      <input
-        name="confidence"
-        type="number"
-        step="0.1"
-        placeholder="Confidence (0-1)"
-        value={formData.confidence}
-  onChange={handleChange}
-  style={{
-    padding: "8px 12px",
-    borderRadius: "8px",
-    border: "1px solid #cbd5e1",
-    marginBottom: "10px",
-    width: "100%"
-  }}
-/>
+      <div style={{ marginBottom: "10px" }}>
+  <label style={{ fontSize: "14px", fontWeight: 500 }}>
+    Confidence (0–1)
+  </label>
+  <input
+    name="confidence"
+    type="number"
+    step="0.1"
+    min="0"
+    max="1"
+    value={formData.confidence}
+    onChange={handleChange}
+    style={{
+      padding: "8px 12px",
+      borderRadius: "8px",
+      border: "1px solid #cbd5e1",
+      marginTop: "4px",
+      width: "100%"
+    }}
+  />
+</div>
       <br />
 
-      <input
-        name="effort"
-        type="number"
-        placeholder="Effort"
-        value={formData.effort}
-  onChange={handleChange}
-  style={{
-    padding: "8px 12px",
-    borderRadius: "8px",
-    border: "1px solid #cbd5e1",
-    marginBottom: "10px",
-    width: "100%"
-  }}
-/>
+      <div style={{ marginBottom: "10px" }}>
+  <label style={{ fontSize: "14px", fontWeight: 500 }}>
+    Effort (Engineering cost estimate)
+  </label>
+  <input
+    name="effort"
+    type="number"
+    min="1"
+    value={formData.effort}
+    onChange={handleChange}
+    style={{
+      padding: "8px 12px",
+      borderRadius: "8px",
+      border: "1px solid #cbd5e1",
+      marginTop: "4px",
+      width: "100%"
+    }}
+  />
+</div>
       <br />
 
       <button

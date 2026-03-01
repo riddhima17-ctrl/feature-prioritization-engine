@@ -3,15 +3,14 @@
 import { useState } from "react";
 import { calculateRiceScore } from "@/lib/rice";
 import { RiceWeights, defaultWeights } from "@/lib/rice";
-import { sampleFeatures } from "@/data/sampleFeatures";
+import { demoBacklog } from "@/data/demoBacklog";
 import FeatureForm from "@/components/FeatureForm";
 import { FeatureInput } from "@/lib/types";
 
 
 export default function Home() {
   const [features, setFeatures] =
-    useState<FeatureInput[]>(sampleFeatures);
-
+    useState<FeatureInput[]>(demoBacklog);
     const [weights, setWeights] =
   useState<RiceWeights>(defaultWeights);
 
@@ -62,6 +61,20 @@ export default function Home() {
       <h1 style={{ color: primaryColor, marginBottom: "30px" }}>
   Feature Prioritization Engine
 </h1>
+<div
+  style={{
+    display: "inline-block",
+    backgroundColor: "#ede9fe",
+    color: "#6d28d9",
+    padding: "6px 12px",
+    borderRadius: "999px",
+    fontSize: "13px",
+    marginBottom: "30px"
+  }}
+>
+  Demo Mode - Example Backlog Loaded 
+</div>
+
       {topFeature && (
   <div style={cardStyle}>
     <h2 style={{ marginTop: 0 }}>Top Ranked Feature</h2>
@@ -80,7 +93,7 @@ export default function Home() {
     margin: "8px 0",
     fontSize: "22px",
     fontWeight: 600,
-    color: primaryColor
+    color: "#7c3aed"
   }}
 >
   {topFeature.score.toFixed(2)}
@@ -115,98 +128,103 @@ export default function Home() {
           min="0.5"
           max="3"
           value={weights.reach}
-          onChange={(e) => {
-            const value = Number(e.target.value);
-            setWeights((prev) => ({
-              ...prev,
-              reach: Math.min(3, Math.max(0.5, value))
-            }));
-          }}
+          onChange={(e) =>
+          setWeights((prev) => ({
+          ...prev,
+          reach: Number(e.target.value)
+        }))
+        }
           style={{
   marginLeft: "10px",
   padding: "6px 10px",
   borderRadius: "8px",
   border: "1px solid #cbd5e1",
   backgroundColor: "#ffffff",
+  color: "#1e293b",
+  fontWeight: 500
 }}
         />
       </label>
 
       <label>
-        Impact Weight:
-        <input
-          type="number"
-          step="0.1"
-          min="0.5"
-          max="3"
-          value={weights.impact}
-          onChange={(e) => {
-            const value = Number(e.target.value);
-            setWeights((prev) => ({
-              ...prev,
-              impact: Math.min(3, Math.max(0.5, value))
-            }));
-          }}
-          style={{
-  marginLeft: "10px",
-  padding: "6px 10px",
-  borderRadius: "8px",
-  border: "1px solid #cbd5e1",
-  backgroundColor: "#ffffff",
-}}
-        />
+        <label>
+  Impact Weight:
+  <input
+    type="number"
+    min="0.5"
+    max="3"
+    step="0.1"
+    value={weights.impact}
+    onChange={(e) =>
+      setWeights((prev) => ({
+        ...prev,
+        impact: Number(e.target.value)
+      }))
+    }
+    style={{
+      marginLeft: "10px",
+      padding: "6px 10px",
+      borderRadius: "8px",
+      border: "1px solid #cbd5e1",
+      backgroundColor: "#ffffff",
+      color: "#1e293b",
+      fontWeight: 500
+    }}
+  />
+</label>
       </label>
 
       <label>
-        Confidence Weight:
-        <input
-          type="number"
-          step="0.1"
-          min="0.5"
-          max="3"
-          value={weights.confidence}
-          onChange={(e) => {
-            const value = Number(e.target.value);
-            setWeights((prev) => ({
-              ...prev,
-              confidence: Math.min(3, Math.max(0.5, value))
-            }));
-          }}
-          style={{
-  marginLeft: "10px",
-  padding: "6px 10px",
-  borderRadius: "8px",
-  border: "1px solid #cbd5e1",
-  backgroundColor: "#ffffff",
-}}
-        />
-      </label>
+  Confidence Weight:
+  <input
+    type="number"
+    min="0.5"
+    max="3"
+    step="0.1"
+    value={weights.confidence}
+    onChange={(e) =>
+      setWeights((prev) => ({
+        ...prev,
+        confidence: Number(e.target.value)
+      }))
+    }
+    style={{
+      marginLeft: "10px",
+      padding: "6px 10px",
+      borderRadius: "8px",
+      border: "1px solid #cbd5e1",
+      backgroundColor: "#ffffff",
+      color: "#1e293b",
+      fontWeight: 500
+    }}
+  />
+</label>
 
       <label>
-        Effort Weight:
-        <input
-          type="number"
-          step="0.1"
-          min="0.5"
-          max="3"
-          value={weights.effort}
-          onChange={(e) => {
-            const value = Number(e.target.value);
-            setWeights((prev) => ({
-              ...prev,
-              effort: Math.min(3, Math.max(0.5, value))
-            }));
-          }}
-          style={{
-  marginLeft: "10px",
-  padding: "6px 10px",
-  borderRadius: "8px",
-  border: "1px solid #cbd5e1",
-  backgroundColor: "#ffffff",
-}}
-        />
-      </label>
-
+  Effort Weight:
+  <input
+    type="number"
+    min="0.5"
+    max="3"
+    step="0.1"
+    value={weights.effort}
+    onChange={(e) =>
+      setWeights((prev) => ({
+        ...prev,
+        effort: Number(e.target.value)
+      }))
+    }
+    style={{
+      marginLeft: "10px",
+      padding: "6px 10px",
+      borderRadius: "8px",
+      border: "1px solid #cbd5e1",
+      backgroundColor: "#ffffff",
+      color: "#1e293b",
+      fontWeight: 500
+    }}
+  />
+</label>
     </div>
   </div>
 
@@ -221,7 +239,9 @@ export default function Home() {
 </div>     
       <div style={cardStyle}>
   <h2 style={{ marginTop: 0 }}>Ranked Features</h2>
-
+  <p style={{ opacity: 0.6, marginBottom: "20px" }}>
+  Example SaaS analytics roadmap prioritized using RICE framework.
+</p>
   <div style={{ display: "grid", gap: "16px" }}>
     {sorted.map((feature) => (
       <div
@@ -237,9 +257,15 @@ export default function Home() {
           {feature.name}
         </strong>
 
-        <p style={{ margin: "6px 0" }}>
-          Score: {feature.score.toFixed(2)}
-        </p>
+        <p
+  style={{
+    margin: "6px 0",
+    fontWeight: 600,
+    color: "#1e293b"
+  }}
+>
+  {feature.score.toFixed(2)}
+</p>
 
         <p style={{ fontSize: "14px", opacity: 0.6 }}>
           {feature.explanation}
@@ -257,6 +283,34 @@ export default function Home() {
         <li>Confidence should reflect evidence, not optimism.</li>
         <li>This tool supports decisions — it does not replace judgment.</li>
       </ul>
+      <div style={{ marginTop: "40px" }}>
+  <h2 style={{ marginBottom: "15px" }}>Prioritization Strategy</h2>
+
+  <div style={cardStyle}>
+    <p style={{ marginBottom: "12px" }}>
+      This demo simulates a SaaS analytics product evaluating roadmap initiatives using the RICE framework.
+    </p>
+
+    <ul style={{ lineHeight: "1.8" }}>
+      <li>
+        High Reach initiatives maximize exposure across the user base.
+      </li>
+      <li>
+        Impact reflects expected business or user value (1–3 scale).
+      </li>
+      <li>
+        Confidence moderates optimism with evidence-based scoring.
+      </li>
+      <li>
+        Effort ensures engineering cost is factored into prioritization.
+      </li>
+    </ul>
+
+    <p style={{ marginTop: "15px", opacity: 0.7 }}>
+      Weight adjustments simulate strategic shifts — for example, increasing Effort weight emphasizes cost sensitivity, while increasing Impact weight prioritizes transformative bets.
+    </p>
+  </div>
+</div>
     </main>
   );
 }
